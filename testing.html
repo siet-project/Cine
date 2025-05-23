@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineLux - Step to New Reality</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <style>
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5); /* Changed to white gradient */
+  color: #333333; /* Darker text for contrast */
+  overflow-x: hidden;
+}
+/* Hero Banner */
+.hero {
+  background: url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Lighter overlay for white theme */
+}
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+.hero-text h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 48px;
+  color: #ff0000; /* Changed to red */
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+.hero-text p {
+  font-size: 18px;
+  color: #333333; /* Darker text for readability */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(to right, #ff4d4d, #ff0000); /* Red gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  background: #ffd700;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  color: #333333; /* Changed for contrast */
+  margin-right: 15px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+.logo-text h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  color: #ffd700;
+  margin: 0;
+}
+.logo-text p {
+  font-size: 14px;
+  color: #ffffff; /* White for contrast on red header */
+  margin: 0;
+}
+.search-bar {
+  padding: 12px;
+  width: 280px;
+  border-radius: 8px;
+  border: 1px solid #ffd700;
+  background: #ffffff; /* White background */
+  color: #333333;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.search-bar:focus {
+  outline: none;
+  border-color: #ff0000; /* Red border on focus */
+  background: #f5f5f5;
+}
+.container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 20px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+h2 {
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  font-size: 40px;
+  color: #ff0000; /* Red for headings */
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  border-bottom: 3px solid #ff4d4d;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  position: relative;
+}
+.movie-card {
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5); /* White gradient */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  animation: fadeIn 0.5s ease-in;
+}
+.movie-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+.movie-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+.movie-card:hover img {
+  opacity: 0.8;
+}
+.movie-info {
+  padding: 20px;
+  text-align: center;
+}
+.movie-info h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  color: #ff0000; /* Red for movie titles */
+  margin: 0 0 10px;
+  animation: marquee 10s linear infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.movie-info p {
+  font-size: 14px;
+  color: #555555; /* Darker gray for readability */
+  margin-bottom: 15px;
+}
+.book-btn {
+  padding: 12px;
+  background: linear-gradient(to right, #ff0000, #ff4d4d); /* Red gradient */
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+.book-btn:hover {
+  background: linear-gradient(to right, #ff4d4d, #ff0000);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, #ffffff, #f5f5f5); /* White gradient */
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  border-top: 2px solid #ff0000; /* Red border */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+nav a {
+  color: #ff0000; /* Red for nav links */
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #ff4d4d;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+}
+footer {
+  margin-top: 60px;
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(to top, #ffffff, #f5f5f5); /* White gradient */
+  color: #ff0000; /* Red text */
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  border-top: 3px solid #ff0000;
+}
+/* Spotlight Effect */
+.movie-grid::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, transparent 70%); /* Red spotlight */
+  transform: translateX(-50%);
+  z-index: -1;
+}
+/* Featured Movie Section */
+.featured-movie {
+  margin-bottom: 50px;
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5); /* White gradient */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+.featured-movie img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.featured-movie h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  color: #ff0000; /* Red for featured title */
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+.featured-movie p {
+  font-size: 16px;
+  color: #555555; /* Darker gray for readability */
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    height: 300px;
+  }
+  .hero-text h1 {
+    font-size: 32px;
+  }
+  .hero-text p {
+    font-size: 16px;
+  }
+  .search-bar {
+    width: 200px;
+  }
+  .movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .movie-card img {
+    height: 300px;
+  }
+  .movie-info h3 {
+    font-size: 20px;
+  }
+  nav a {
+    font-size: 14px;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Welcome to CineLux</h1>
+      <p>Experience Movies Like Never Before</p>
+    </div>
+  </div>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icon">C</div>
+      <div class="logo-text">
+        <h1>CineLux</h1>
+        <p>Step to New Reality</p>
+      </div>
+    </div>
+    <input type="text" class="search-bar" placeholder="Search for a movie...">
+  </header>
+
+ <!-- <div class="container">
+    <div class="featured-movie">
+      <h2>Featured Movie</h2>
+      <img src="https://u-mercari-images.mercdn.net/photos/m39346028974_1.jpg" alt="Oppenheimer">
+      <h3>Oppenheimer</h3>
+      <p>The gripping story of J. Robert Oppenheimer and the development of the atomic bomb, a cinematic masterpiece.</p>
+      <button class="book-btn">Book Now</button>
+    </div> -->
+
+    <h2>Now Showing</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="https://resizing.flixster.com/H1rYWSRXyeAu8Kr2WePSdYsjDNQ=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9957443_v_h8_bc.jpg" alt="Edge of Tomorrow">
+        <div class="movie-info">
+          <h3>Edge of Tomorrow</h3>
+          <p>A soldier relives the same day over and over again in a war with aliens.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://m.media-amazon.com/images/I/81p+xe8cbnL.AC_SL1500.jpg" alt="Inception">
+        <div class="movie-info">
+          <h3>Inception</h3>
+          <p>A thief steals corporate secrets through dream-sharing technology.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://m.media-amazon.com/images/I/91kFYg4fX3L.AC_SL1500.jpg" alt="Interstellar">
+        <div class="movie-info">
+          <h3>Interstellar</h3>
+          <p>A team travels through a wormhole to ensure humanity's survival.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://m.media-amazon.com/images/I/81ExhpBEbHL.AC_SL1500.jpg" alt="Avengers: Endgame">
+        <div class="movie-info">
+          <h3>Avengers: Endgame</h3>
+          <p>Superheroes unite to undo the devastation caused by Thanos.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://i.redd.it/nh8ak50scze01.jpg" alt="Black Panther">
+        <div class="movie-info">
+          <h3>Black Panther</h3>
+          <p>The king of Wakanda must defend his nation from a powerful enemy.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://preview.redd.it/the-final-doctor-strange-2-poster-v0-ax2ozzxr2wv81.jpg?width=640&crop=smart&auto=webp&s=e3d29e86610e3a5dc16ebe7b3e77c99fceedf03d" alt="Doctor Strange 2">
+        <div class="movie-info">
+          <h3>Doctor Strange Multiverse Of Madness</h3>
+          <p>Strange journeys through the multiverse to face a powerful threat.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://images-cdn.ubuy.co.in/634e3c67f6511e3fcc7c57a3-2021-movie-tom-holland-spider-man-no.jpg" alt="Spider-Man: No Way Home">
+        <div class="movie-info">
+          <h3>Spider-Man: No Way Home</h3>
+          <p>Peter Parker faces multiverse villains after a spell goes wrong.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="movie-info">
+          <img src="https://imageio.forbes.com/specials-images/imageserve/61116cea2313e8bae55a536a/-Dune-/0x0.jpg?format=jpg&width=960" alt="Dune">
+          <h3>Dune</h3>
+          <p>A noble family gets caught in a galactic battle over a vital resource.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://www.aestheticwalldecor.com/cdn/shop/files/oppenheimer-2023-movie-poster-aesthetic-wall-decor.jpg?v=1692556521" alt="Oppenheimer">
+        <div class="movie-info">
+          <h3>Oppenheimer</h3>
+          <p>The story of the scientist who developed the atomic bomb.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      <div class="movie-card">
+        <img src="https://i.pinimg.com/736x/6e/50/a0/6e50a0bb3202e05cb9de75978b50e4a7.jpg" alt="John Wick 4">
+        <div class="movie-info">
+          <h3>John Wick 4</h3>
+          <p>John Wick takes the fight to the High Table on a global scale.</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Now Showing</a>
+    <a href="#">Upcoming</a>
+    <a href="#">Bookings</a>
+    <a href="#">Profile</a>
+  </nav>
+
+  <footer>
+    <p>© 2025 CineLux. All rights reserved.</p>
+  </footer>
+</body>
+</html>

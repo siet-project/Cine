@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CineLux - Step to New Reality</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
   * {
   box-sizing: border-box;
@@ -270,7 +272,41 @@ footer {
   color: #555555; /* Darker gray for readability */
   max-width: 600px;
   margin: 0 auto 20px;
+}.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, #ffffff, #f5f5f5);
+  border-top: 2px solid #d90429;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
 }
+
+.bottom-nav a {
+  color: #d90429;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.bottom-nav a:hover {
+  color: #ff4d4d;
+  transform: translateY(-2px);
+}
+
+.bottom-nav i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero {
@@ -413,12 +449,12 @@ footer {
     </div>
   </div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Now Showing</a>
-    <a href="#">Upcoming</a>
-    <a href="#">Bookings</a>
-    <a href="#">Profile</a>
+   <nav class="bottom-nav">
+    <a href="#"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#"><i class="fas fa-film"></i><span>Now Showing</span></a>
+    <a href="#"><i class="fas fa-calendar-plus"></i><span>Upcoming</span></a>
+    <a href="#"><i class="fas fa-ticket"></i><span>Tickets</span></a>
+    <a href="#"><i class="fas fa-user-circle"></i><span>Profile</span></a>
   </nav>
 
   <footer>
